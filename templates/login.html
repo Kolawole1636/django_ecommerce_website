@@ -1,0 +1,62 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+
+<!--Main layout-->
+<main class="mt-5 pt-4">
+    <div class="container wow fadeIn">
+
+      <!-- Heading -->
+      <h2 class="my-5 h2 text-center">Login Form</h2>
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-8 mb-4">
+
+          
+          {% for message in messages %}
+
+          <h3 style="margin-left:140px ;" class=" btn btn-danger ">{{message}}</h3>
+
+          {% endfor %}
+
+          <!--Card-->
+          <div class="card">
+
+
+            <!--Card content-->
+            <form action="login" method="post" class="card-body">
+              {% csrf_token %}
+
+              <!--Username-->
+              <div class="md-form input-group pl-0 mb-5">
+                
+                <input type="text" name="uname" class="form-control py-0" placeholder="Username" aria-describedby="basic-addon1">
+              </div>
+
+               <!--Pass1-->
+               <div class="md-form input-group pl-0 mb-5">
+               
+                <input type="password" name="pass" class="form-control py-0" placeholder="Password" aria-describedby="basic-addon1">
+              </div>
+
+             <hr class="mb-4">
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+
+            </form>
+
+          </div>
+          <!--/.Card-->
+
+        </div>
+        <!--Grid column-->
+    
+    </div>
+</main>
+<!--Main layout-->
+
+{% include 'footer.html' %}
+{% endblock %}
